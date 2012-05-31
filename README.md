@@ -23,11 +23,9 @@ Feel free to submit pull requests with your comments and contributions.
 Also be sure to add your name to the list if you commit any code.
 
 ## Contributors
-- - - 
-Max Seiden
++ Max Seiden
 
 ## License
-- - - 
 Copyright (c) 2012 Michigan Hackers, michiganhackers.com, admin@michiganhackers.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
