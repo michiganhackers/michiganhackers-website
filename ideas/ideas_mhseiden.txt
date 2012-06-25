@@ -1,0 +1,17 @@
+Languages
++ Scala
++ Ruby (Rails)
++ Javascript (Node)
+
+Servers
++ HAProxy (Load balancing)
++ GWAN (Assets)
+
+Databases
++ Voldemort
++ Apache HedWig
+
+Hosting
++ UMich (if we can get our own box)
++ Amazon (if they'll sponsor it)
++ VM on an OpenStack deployment (yea no...)
