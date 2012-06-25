@@ -1,5 +1,5 @@
 Languages
-+ Scala
++ Scala (Lift or Play are evidently both good)
 + Ruby (Rails)
 + Javascript (Node)
 
@@ -8,10 +8,9 @@ Servers
 + GWAN (Assets)
 
 Databases
++ Postgres (since most of us probably have MySQL exp.)
 + Voldemort
-+ Apache HedWig
 
 Hosting
 + UMich (if we can get our own box)
 + Amazon (if they'll sponsor it)
-+ VM on an OpenStack deployment (yea no...)
