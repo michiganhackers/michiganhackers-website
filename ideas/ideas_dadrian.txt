@@ -1,0 +1,33 @@
+Languages
++ Python (Django)
++ Ruby (Rails)
++ Node.js (Do we need async?)
++ PHP (No one likes it, but anyone can code it)
+
+Servers
++ Can't really comment. 
++ Jetty works if you're going Java.
++ Apache works if you're going PHP. 
+
+Databases
++ Postgres
++ Cassandra
++ Voldemort
++ Riak
+
+What are we storing, do we want to satisfy arbitrary relationships, or is key/value fine?
+I can attest from using Voldemort at work that once you start storing anything mildly complicated, everything sucks.
+Are we coding in Java, if not we might want Riak in place of Voldemort, because it has a REST API.
+
+Before we pick this, pick what is going on this website, and what it is suppossed to do.
+
+Other 2 cents:
+
+Repo/Branch Organization Flow
++ Always pull with --rebase
++ Git Flow tends to prevent people from understanding Git
++ Don't bother with a dev branch until after first release
+
+Hosting
++ If you use UMich servers, you get PHP. Otherwise you need your own box.
+
