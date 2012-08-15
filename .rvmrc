@@ -1,0 +1,16 @@
+# Use the project gemset
+rvm_gemset_create_on_use_flag=1
+
+# Go back to the default ruby version when exiting
+rvm_project_rvmrc_default=1
+
+# Use the correct gemset
+rvm use ruby-1.9.3-p194@michiganhackers
+
+# Ensure that bundle is installed
+if ! command -v bundle ; then
+  gem install bundler
+fi
+
+# Bundle every time the rvmrc is read
+bundle
