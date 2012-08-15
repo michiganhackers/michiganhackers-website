@@ -11,7 +11,7 @@ TL;DR - [Install RVM, and be sure to read their docs](https://rvm.io/rvm/install
 ## Installing the correct version of Ruby
 We're using ruby version ruby-1.9.3-p194, as dicated by the RVM installer. Thus,
 use this command when doing your initial install.
-    rvm install ruby-1.9.3-p194
+        rvm install ruby-1.9.3-p194
 
 ## Installing Ruby on Rails
 Surprise! You don't actually have to install Ruby on Rails. RVM and bundler will
@@ -36,7 +36,7 @@ website, as well as RailsCasts, are both great starting points. Rails for
 Zombies is also worth checking out. 
 
 NB: You can run the server with the following command: 
-    rails s
+        rails s
 
 ## Contributors
 * Max Seiden
