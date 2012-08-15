@@ -32,6 +32,7 @@ GEM
     bcrypt-ruby (3.0.1)
     builder (3.0.0)
     daemons (1.1.8)
+    declarative_authorization (0.5.5)
     erubis (2.7.0)
     eventmachine (0.12.10)
     execjs (1.4.0)
@@ -102,6 +103,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
+  declarative_authorization (= 0.5.5)
   haml (= 3.1.6)
   mysql2 (= 0.3.11)
   rails (= 3.2.6)
