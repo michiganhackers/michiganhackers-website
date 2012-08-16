@@ -1,0 +1,9 @@
+/* Grid variables */
+
+$horizontal-gutter: 20px;
+$vertical-gutter: 10px;
+
+$number-of-columns: 12;
+$outer-page-width: 960px;
+
+$column-inner-width: ($outer-page-width / $number-of-columns) - ($vertical-gutter * 2);
