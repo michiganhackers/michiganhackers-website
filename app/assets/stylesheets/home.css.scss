@@ -1,0 +1,67 @@
+@import "variables";
+
+.hero-pane {
+	height: 120px;
+}
+
+.second-pane .social {
+
+	p {
+		padding-top: 16px;
+	}
+
+	.email-signup-form {
+		padding-top: 6px;
+		margin-top: 16px;
+		
+		border-top: 2px dashed #CCC;
+		
+		input.email-input {
+			margin-left: 0px;
+			padding: 2px;
+			width: 200px;
+			line-height: 100%;
+		}
+	
+		fieldset {
+			margin-top: 10px;
+		}
+	}
+	
+}
+
+.second-pane .events {
+	
+	li {
+		margin-top: 16px;
+	}
+	
+	h3 {
+		text-transform: none;
+	}
+	
+	h5 {
+		margin-top: 2px;
+		font-size: 9px;
+		text-transform: capitalize;
+		color: #666;
+	}
+	
+	p {
+		padding-top: 10px;
+	}
+
+	span.see-more a {
+		display: inline-block;
+		font-size: 12px;
+		margin: 16px 0px 0px 0px;
+		text-transform: lowercase;
+		color: #999;
+		padding: 0px 4px;
+		background: #EEE;
+	}
+	
+	span.see-more a:hover {
+		color: #666;
+	}
+}

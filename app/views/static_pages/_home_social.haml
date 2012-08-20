@@ -1,0 +1,17 @@
+%h2= "Stay in Touch"
+%p= "Whether you're a student, educator, or company, we'd love to stay in touch!"
+%p= "Simply submit your email via the form below, and we'll keep you up to date with everything Michigan Hackers."
+= form_for(User.new, method: :post, url: "", html: {class: "email-signup-form", id: "email-signup-form"}) do |f| 
+	%fieldset
+		= f.text_field :email, {placeholder: "your @umich email", class: "email-input"}
+		= f.submit "Sign Up", {name: ""}
+	%fieldset
+		= radio_button :user, :type, "student", {checked: "checked", class: "radio-btn"}
+		%span.radio-text= "student"
+		= radio_button :user, :type, "educator", {class: "radio-btn"}
+		%span.radio-text= "educator"
+		= radio_button :user, :type, "company", {class: "radio-btn"}
+		%span.radio-text= "company"
+
+%span.ajax-response-text.error
+	= "The AJAX response goes here"

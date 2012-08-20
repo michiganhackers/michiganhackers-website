@@ -2,8 +2,21 @@
 
 /* Utility Styles */
 .clear { clear: both; }
-.text-large { font-size: 32px; line-height: 42px; }
-.text-normal {font-size: 16px; line-height: 18px; }
+.text-large { font-size: 32px; line-height: 40px; }
+.text-normal { font-size: 16px; line-height: 20px; }
+
+/* Input Styles */
+input.radio-btn {
+	vertical-align: middle;
+}
+
+span.radio-text {
+	font-size: 12px;
+	line-height: 12px;
+	
+	margin-right: 16px;
+	vertical-align: middle;
+}
 
 /* Grid Styles */
 .container { 
@@ -17,14 +30,16 @@
 	display: table;
 	content: "";
 }
-.row .row { padding: 0px; }
 
 .row { 
 	width: 100%;
+}
+
+.row .row {
 	padding: $horizontal-gutter 0px; 
 }
 
-.col1, .col2, .col3, .col4, .col6, .col8, .col10, .col12,
+.col1, .col2, .col3, .col4, .col5, .col6, .col8, .col10, .col12,
 .col10-no-padding { 
 	float: left;
 	min-height: 1px;
@@ -36,6 +51,7 @@
 .col2 { width: ($column-inner-width * 2) + ($vertical-gutter * 2); }
 .col3 { width: ($column-inner-width * 3) + ($vertical-gutter * 4); }
 .col4 { width: ($column-inner-width * 4) + ($vertical-gutter * 6); }
+.col5 { width: ($column-inner-width * 5) + ($vertical-gutter * 8); }
 .col6 { width: ($column-inner-width * 6) + ($vertical-gutter * 10); }
 .col8 { width: ($column-inner-width * 8) + ($vertical-gutter * 14); }
 .col10 { width: ($column-inner-width * 10) + ($vertical-gutter * 18); }
@@ -59,11 +75,18 @@ i {
 	font-style: italic;
 }
 
-h1, h2, h3 {
-	font-size: 32px;
+h1, h2, h3, h4, h5 {
 	font-weight: bold;
 	text-transform: uppercase;
+}
 
+h2 {
+	font-size: 16px;	
+}
+
+p, span {
+	line-height: 18px;
+	font-weight: lighter;
 }
 
 h4, h5 {
@@ -76,37 +99,70 @@ a {
 
 /* Header and Nav Styles */
 .header-outer {
-	position: fixed;
+	position: absolute;
 	top: 0px;
 	left: 0px;
 	right: 0px;
+	height: 160px;
 }
 
 .header-inner {
-	background: #FF3C00;
+	background: $hackers-orange;
 	height: 140px;
 }
 
 .logo-wrap {
+	padding-bottom: 0px !important;
+	
+	img {
+		width: 48px;
+		height: 60px;
+	}
 	
 	h1 {
-		margin-left: -3px; /* lines up the left edge with smaller text */
 		padding-bottom: 26px;		
 		font-size: 60px;
-		color: #EEE;
+		color: #FFF;
 	}
 }
 
 .navbar-wrap {
+	padding: 0px !important;
+	
 	li {
 		a {
 			font-weight: lighter;
 			padding-bottom: 3px;
-			color: #EEE;
+			color: #FFF;
 		}
 		
 		a:hover, a.active {
-			border-bottom: 4px solid #EEE;
+			border-bottom: 4px solid #FFF;
 		}
+	}
+}
+
+/* AJAX Response Styles */
+
+.ajax-response-text {
+	display: inline-block;
+	margin: 10px 0px;
+	font-size: 13px;
+	color: $hackers-orange;
+}
+
+.ajax-response-text.error {
+	color: $hackers-orange;
+}
+
+/* Footer Styles */
+.footer {
+	margin-top: 20px;
+	padding-bottom: 10px;
+	
+	p {
+		text-align: center;
+		font-size: 11px;
+		line-height: 13px;
 	}
 }
