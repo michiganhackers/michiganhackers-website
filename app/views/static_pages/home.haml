@@ -1,6 +1,16 @@
-.row
+- css_for_head "home"
+
+.row.hero-pane
 	.col10
 		%p.text-large
 			%strong= "Michigan Hackers:"
 			= "We're the coolest kids on the block."
-			%i= "Ya dig?"
+			%i= "-Ya dig?"
+
+.row.second-pane
+	.col5.events
+		= render partial: "static_pages/home_events"
+	.col1			
+	.col4.social
+		= render partial: "static_pages/home_social"
+	
