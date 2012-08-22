@@ -11,7 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120819225808) do
+ActiveRecord::Schema.define(:version => 20120822063929) do
+
+  create_table "events", :primary_key => "event_id", :force => true do |t|
+    t.string    "name",         :limit => 127,                :null => false
+    t.text      "description",                                :null => false
+    t.string    "location",     :limit => 127,                :null => false
+    t.datetime  "start_time",                                 :null => false
+    t.datetime  "end_time"
+    t.string    "facebook_eid", :limit => 127
+    t.float     "position_lat"
+    t.float     "position_lng"
+    t.integer   "created_by",                  :default => 0, :null => false
+    t.timestamp "created_at",                                 :null => false
+    t.integer   "updated_by",                  :default => 0, :null => false
+    t.timestamp "updated_at",                                 :null => false
+  end
 
   create_table "users", :primary_key => "user_id", :force => true do |t|
     t.string    "first_name",    :limit => 63,  :default => "", :null => false

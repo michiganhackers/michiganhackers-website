@@ -1,6 +1,8 @@
 %h2= "Upcoming Events"
+
 %ul
-	- @upcoming_events.each do |event|
+	- @events.each do |event|
+		- next
 		%li
 			%h3= event.name
 			%h5 
@@ -9,7 +11,5 @@
 					= "#{event.start_time.strftime('%A, %B %-d @ %-l:%S%P')} in #{event.location}"
 		%p
 			= event.description
-	%span.see-more
-		%a{href: "#"}
-			%i= "See More &rArr;".html_safe
-	
+			
+%h2= "Prior Events"
