@@ -29,8 +29,17 @@ Website::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   config.active_record.auto_explain_threshold_in_seconds = 0.5
 
-  # Do not compress assets
-  config.assets.compress = false
+  # Disable the asset pipeline
+  config.assets.enabled = false
+
+  # Serve static assets
+  config.serve_static_assets = true
+
+  # Set the asset prefix
+  config.assets.prefix = "/assets"
+
+  # Set the base asset path
+  config.action_controller.asset_path = Proc.new { |path| "/assets#{path}" }
 
   # Expands the lines which load the assets
   config.assets.debug = true

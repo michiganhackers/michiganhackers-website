@@ -7,9 +7,8 @@
 				%i
 					= "X Attending - " if event.facebook_eid.nil? and false
 					= "#{event.start_time.strftime('%A, %B %-d @ %-l:%S%P')} in #{event.location}"
-		%p
-			= event.description
+			%p
+				= event.description
 	%span.see-more
-		%a{href: "#"}
+		%a{href: "#{events_url}"}
 			%i= "See More &rArr;".html_safe
-	

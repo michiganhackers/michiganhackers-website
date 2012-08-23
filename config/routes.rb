@@ -6,6 +6,11 @@ Website::Application.routes.draw do
 
   root to: "static_pages#home"
   get "/sponsors" => "static_pages#sponsors", as: :sponsors
+  
+  # For testing the 404 page
+  if Rails.env.development?
+    get "/404" => "static_pages#error", as: :error
+  end
 
   ####################
   # Standard Routing #
@@ -24,11 +29,22 @@ Website::Application.routes.draw do
   # Ajax Routing #
   ################
   scope "ajax", module: :ajax do
-    post "/sign-up" => "users#sign_up_by_email_and_type"
+    post "/sign-up" => "users#sign_up_by_email_and_type", as: :ajax_sign_up
   end
   
   #################
   # Admin Routing #
   #################
+  scope "admin", module: :admin do
+    
+  end
+  
+  
+  ##################
+  # Error Handling #
+  ##################
+  
+  match "*a", to: "static_pages#error"
+  
   
 end

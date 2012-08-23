@@ -5,7 +5,7 @@ class Ajax::AjaxController < ApplicationController
   
   before_filter :ensure_is_xhr
   around_filter :ajax_exception_wrapper
-  
+    
   public
   
   protected
@@ -13,7 +13,7 @@ class Ajax::AjaxController < ApplicationController
   def respond_with_success(response_data)
     render json: {status: 200, payload: response_data}
   end
-  
+    
   private
   
   # Catch-all for the AJAX requests that standardizes the error-return format

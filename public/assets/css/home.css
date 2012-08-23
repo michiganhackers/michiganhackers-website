@@ -1,0 +1,50 @@
+/* Grid variables */
+/* line 3, ../../../app/assets/stylesheets/home.scss */
+.hero-pane {
+  height: 120px; }
+
+/* line 9, ../../../app/assets/stylesheets/home.scss */
+.second-pane .social p {
+  padding-top: 16px; }
+/* line 13, ../../../app/assets/stylesheets/home.scss */
+.second-pane .social .email-signup-form {
+  padding-top: 6px;
+  margin-top: 16px;
+  border-top: 2px dashed #CCC; }
+  /* line 19, ../../../app/assets/stylesheets/home.scss */
+  .second-pane .social .email-signup-form input.email-input {
+    margin-left: 0px;
+    padding: 2px;
+    width: 200px;
+    line-height: 100%; }
+  /* line 26, ../../../app/assets/stylesheets/home.scss */
+  .second-pane .social .email-signup-form fieldset {
+    margin-top: 10px; }
+
+/* line 35, ../../../app/assets/stylesheets/home.scss */
+.second-pane .events li {
+  margin-top: 16px; }
+/* line 39, ../../../app/assets/stylesheets/home.scss */
+.second-pane .events h3 {
+  text-transform: none; }
+/* line 43, ../../../app/assets/stylesheets/home.scss */
+.second-pane .events h5 {
+  margin-top: 2px;
+  font-size: 9px;
+  text-transform: capitalize;
+  color: #666; }
+/* line 50, ../../../app/assets/stylesheets/home.scss */
+.second-pane .events p {
+  padding-top: 10px; }
+/* line 54, ../../../app/assets/stylesheets/home.scss */
+.second-pane .events span.see-more a {
+  display: inline-block;
+  font-size: 12px;
+  margin: 16px 0px 0px 0px;
+  text-transform: lowercase;
+  color: #999;
+  padding: 0px 4px;
+  background: #EEE; }
+/* line 64, ../../../app/assets/stylesheets/home.scss */
+.second-pane .events span.see-more a:hover {
+  color: #666; }
