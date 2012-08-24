@@ -1,3 +1,5 @@
+require "#{Rails.root}/db/migration_helper"
+
 class CreateEvents < ActiveRecord::Migration
 
   def up 
@@ -18,17 +20,12 @@ class CreateEvents < ActiveRecord::Migration
       t.column :position_lat, "float", {null: true}
       t.column :position_lng, "float", {null: true}
 
-      # Utility columns
-      t.column :created_by, "integer(11) unsigned", {null: false, default: 0}
-      t.column :updated_by, "integer(11) unsigned", {null: false, default: 0}
     end
 
-    # Apply Indexes and FK-contraints
+    # Helper Methods
+    MigrationHelper.created_updated_columns self, :events 
+    MigrationHelper.primary_key self, :events, :event_id
 
-    # Adding these in by hand - ActiveRecord::Migration isn't quite this good...
-    execute "ALTER TABLE `events` ADD COLUMN `event_id` integer(11) unsigned AUTO_INCREMENT PRIMARY KEY FIRST;"
-    execute "ALTER TABLE `events` ADD `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP AFTER `created_by`;"
-    execute "ALTER TABLE `events` ADD `updated_at` TIMESTAMP NOT NULL DEFAULT '0000-00-00 00:00:00' AFTER `updated_by`;"
   end
 
   def down

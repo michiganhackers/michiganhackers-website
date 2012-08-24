@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120822063929) do
+ActiveRecord::Schema.define(:version => 20120824001928) do
 
   create_table "events", :primary_key => "event_id", :force => true do |t|
     t.string    "name",         :limit => 127,                :null => false
@@ -22,21 +22,30 @@ ActiveRecord::Schema.define(:version => 20120822063929) do
     t.string    "facebook_eid", :limit => 127
     t.float     "position_lat"
     t.float     "position_lng"
-    t.integer   "created_by",                  :default => 0, :null => false
     t.timestamp "created_at",                                 :null => false
-    t.integer   "updated_by",                  :default => 0, :null => false
+    t.integer   "created_by",                  :default => 0, :null => false
     t.timestamp "updated_at",                                 :null => false
+    t.integer   "updated_by",                  :default => 0, :null => false
+  end
+
+  create_table "user_types", :primary_key => "user_type_id", :force => true do |t|
+    t.string    "type_name",  :limit => 63,                :null => false
+    t.timestamp "created_at",                              :null => false
+    t.integer   "created_by",               :default => 0, :null => false
+    t.timestamp "updated_at",                              :null => false
+    t.integer   "updated_by",               :default => 0, :null => false
   end
 
   create_table "users", :primary_key => "user_id", :force => true do |t|
+    t.integer   "user_type_id",                                 :null => false
     t.string    "first_name",    :limit => 63,  :default => "", :null => false
     t.string    "last_name",     :limit => 63,  :default => "", :null => false
     t.string    "email",         :limit => 127,                 :null => false
     t.string    "password_hash", :limit => 63,                  :null => false
-    t.integer   "created_by",                   :default => 0,  :null => false
     t.timestamp "created_at",                                   :null => false
-    t.integer   "updated_by",                   :default => 0,  :null => false
+    t.integer   "created_by",                   :default => 0,  :null => false
     t.timestamp "updated_at",                                   :null => false
+    t.integer   "updated_by",                   :default => 0,  :null => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

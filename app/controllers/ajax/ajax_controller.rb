@@ -10,8 +10,8 @@ class Ajax::AjaxController < ApplicationController
   
   protected
   
-  def respond_with_success(response_data)
-    render json: {status: 200, payload: response_data}
+  def respond_with_json(status, message, payload)
+    render json: {status: status, message: message, payload: payload}
   end
     
   private
@@ -21,7 +21,7 @@ class Ajax::AjaxController < ApplicationController
     begin
       yield
     rescue Exception => e
-      render json: {status: 400, payload: e.message}
+      respond_with_json(400, e.message, e)
     end
   end
   

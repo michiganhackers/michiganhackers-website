@@ -6,12 +6,12 @@
 		= f.text_field :email, {placeholder: "your @umich email", class: "email-input"}
 		= f.submit "Sign Up", {name: ""}
 	%fieldset
-		= radio_button :user, :type, "student", {checked: "checked", class: "radio-btn"}
+		= radio_button :user_type, :type_name, "student", {checked: "checked", class: "radio-btn"}
 		%span.radio-text= "student"
-		= radio_button :user, :type, "educator", {class: "radio-btn"}
+		= radio_button :user_type, :type_name, "educator", {class: "radio-btn"}
 		%span.radio-text= "educator"
-		= radio_button :user, :type, "company", {class: "radio-btn"}
+		= radio_button :user_type, :type_name, "company", {class: "radio-btn"}
 		%span.radio-text= "company"
 
-%span#ajax-response-text.ajax-response-text.error
-	= "The AJAX response goes here"
+%span#ajax-response-text.ajax-response-text.error.hide{style: "display: none;"}
+	= ""
