@@ -10,6 +10,9 @@ class CreateUserTypes < ActiveRecord::Migration
 
     end
 
+    # Add an index for type_name
+    add_index(:user_types, :type_name, {unique: true})
+
     MigrationHelper.created_updated_columns self, :user_types
     MigrationHelper.primary_key self, :user_types, :user_type_id
 

@@ -11,11 +11,10 @@ class User < ActiveRecord::Base
   # Validation
   validates_uniqueness_of :email
   
-  
   ### Static Methods ###
   
-  def self.new_user_by_type type_data, user_data
-    user_type = UserType.find_by_type_name type_data[:type_name]
+  def self.new_user_by_type type_name, user_data
+    user_type = UserType.find_by_type_name type_name
     user = User.new user_data.merge user_type_id: user_type.id
     user.randomize_password
     
