@@ -10,6 +10,10 @@ class Ajax::AjaxController < ApplicationController
   
   protected
   
+  def default_exception_message
+    "There was an error processing your request"
+  end
+  
   def respond_with_json(status, message, payload)
     render json: {status: status, message: message, payload: payload}
   end
@@ -21,7 +25,8 @@ class Ajax::AjaxController < ApplicationController
     begin
       yield
     rescue Exception => e
-      respond_with_json(400, e.message, e)
+      msg = Rails.env.production? ?  default_exception_message : e.message
+      respond_with_json(400, msg, e)
     end
   end
   

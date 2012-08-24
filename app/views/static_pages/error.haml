@@ -1,7 +1,9 @@
+- css_for_head "error"
+
 .error_page
 	.four_oh_four
 		.four= "4"
-		%img{src: "/assets/logo_orange.png"}
+		%img{src: "/assets/images/logo_orange.png"}
 		.four= "4"
 	- if Rails.env.production?
 		%h2.text-large= "There's nothing here<br/>Sorry".html_safe
