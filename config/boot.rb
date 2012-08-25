@@ -5,13 +5,17 @@ ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../../Gemfile', __FILE__)
 
 require 'bundler/setup' if File.exists?(ENV['BUNDLE_GEMFILE'])
 
-# Set the default port to 20000
+# Set the default port to 20000 in prod, 20001 in all else
 require 'rails/commands/server'
 module Rails
   class Server
-    alias :default_options_alias :default_options
-    def default_options
-      default_options_alias.merge!(:Port => 20000)
-    end 
+    def set_environment
+      ENV["RAILS_ENV"] ||= options[:environment]
+      if ENV["RAILS_ENV"] == "production"
+        options[:Port] = 20000
+      else 
+        options[:Port] = 20001
+      end
+    end
   end
 end
