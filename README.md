@@ -40,6 +40,11 @@ NB: You can run the server with the following command:
 
         rails s
 
+## Making Database Updates 
+Be sure to read the Ruby on Rails guide for working with Database Migrations.
+You can find it on there website, or follow [this link](http://guides.rubyonrails.org/migrations.html)
+
+
 ## Contributors
 * Max Seiden
 

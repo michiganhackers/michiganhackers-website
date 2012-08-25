@@ -14,3 +14,10 @@ fi
 
 # Bundle every time the rvmrc is read
 bundle
+
+
+echo -e "\n"
+echo "##################################################################"
+echo "# Remember to run 'rake db:migrate' to get the latest SQL deltas #"
+echo "##################################################################"
+echo -e "\n"

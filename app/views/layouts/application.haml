@@ -16,6 +16,7 @@
 		/ Page Assets		
 		= yield :page_assets
 		
+		= render partial: "layouts/google_analytics"
 	%body
 		= render partial: "layouts/header" unless @no_header == true
 		.container
