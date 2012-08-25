@@ -1,0 +1,16 @@
+- css_for_head "events"
+
+.events
+	- unless @upcoming_events.empty?
+		.event-block
+			%h2.text-large= "Upcoming Events"
+			%ul
+				- @upcoming_events.each do |event|
+					= render partial: "events/event_li", locals: {event: event}			
+
+	- unless @past_events.empty?
+		.event-block
+			%h2.text-large= "Past Events"
+			%ul
+				- @past_events.each do |event|
+					= render partial: "events/event_li", locals: {event: event}

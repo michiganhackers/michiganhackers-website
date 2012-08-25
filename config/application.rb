@@ -53,10 +53,20 @@ module Website
     # parameters by using an attr_accessible or attr_protected declaration.
     config.active_record.whitelist_attributes = true
 
-    # Enable the asset pipeline
-    config.assets.enabled = true
+    # Disable the asset pipeline
+    config.assets.enabled = false
 
-    # Version of your assets, change this if you want to expire all your assets
-    config.assets.version = '1.0'
+    # Serve static assets
+    config.serve_static_assets = true
+
+    # Set the asset prefix
+    config.assets.prefix = "/assets"
+
+    # Set the base asset path
+    config.action_controller.asset_path = Proc.new { |path| "/assets#{path}" }
+
+    # Expands the lines which load the assets
+    config.assets.debug = true
+    
   end
 end
