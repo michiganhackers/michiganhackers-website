@@ -12,7 +12,7 @@ TL;DR - [Install RVM, and be sure to read their docs](https://rvm.io/rvm/install
 We're using ruby version ruby-1.9.3-p194, as dicated by the RVM installer. Thus,
 use this command when doing your initial install.
 
-        rvm install ruby-1.9.3-p194
+    rvm install ruby-1.9.3-p194
 
 ## Installing Ruby on Rails
 Surprise! You don't actually have to install Ruby on Rails. RVM and bundler will
@@ -38,12 +38,20 @@ Zombies is also worth checking out.
 
 NB: You can run the server with the following command: 
 
-        rails s
+    rails s
 
 ## Making Database Updates 
 Be sure to read the Ruby on Rails guide for working with Database Migrations.
 You can find it on there website, or follow [this link](http://guides.rubyonrails.org/migrations.html)
 
+## Working with Static Assets (SASS)
+If you didn't read all the way through the README, and are wondering why none of the assets are showing up, 
+it's because you didn't read this part of the README! There is a script in the {ROOT}/script directory called
+**manage_assets_development**. Run this. It will set up symlinks from app/assets to public/assets, as well as 
+run the SASS compiler. 
+
+The script is also a work in progress. For example, none of the confirmation dialogs actually give you a choice. 
+If you're so inspired, you can help hash this out more fully.
 
 ## Contributors
 * Max Seiden
