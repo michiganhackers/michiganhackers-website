@@ -14,7 +14,7 @@ module Rails
       if ENV["RAILS_ENV"] == "production"
         options[:Port] = 20000
       else 
-        options[:Port] = 20001
+        options[:Port] = 4200
       end
     end
   end
