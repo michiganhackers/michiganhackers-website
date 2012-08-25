@@ -1,7 +1,8 @@
 class EventsController < ApplicationController
   
   def index
-    @events = Event.limit(5).to_a
+    @upcoming_events = Event.upcoming_events
+    @past_events = Event.past_events
   end
   
 end

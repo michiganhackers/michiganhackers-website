@@ -1,15 +1,16 @@
-%h2= "Upcoming Events"
+- css_for_head "events"
 
-%ul
-	- @events.each do |event|
-		- next
-		%li
-			%h3= event.name
-			%h5 
-				%i
-					= "X Attending - " if event.facebook_eid.nil? and false
-					= "#{event.start_time.strftime('%A, %B %-d @ %-l:%S%P')} in #{event.location}"
-		%p
-			= event.description
-			
-%h2= "Prior Events"
+.events
+	- unless @upcoming_events.empty?
+		.event-block
+			%h2.text-large= "Upcoming Events"
+			%ul
+				- @upcoming_events.each do |event|
+					= render partial: "events/event_li", locals: {event: event}			
+
+	- unless @past_events.empty?
+		.event-block
+			%h2.text-large= "Past Events"
+			%ul
+				- @past_events.each do |event|
+					= render partial: "events/event_li", locals: {event: event}

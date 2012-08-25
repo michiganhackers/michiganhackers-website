@@ -16,11 +16,6 @@ class ApplicationController < ActionController::Base
       render template: "static_pages/error"
     end
   
-    # Define this as a class method so that children can use it
-    def load_upcoming_events
-      @upcoming_events = Event.upcoming_events
-    end
-  
   private
   
     def request_exception_wrapper

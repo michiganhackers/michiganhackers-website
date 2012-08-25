@@ -1,7 +1,6 @@
 class Event < ActiveRecord::Base
   
-  def self.upcoming_events(count=5)
-    Event.limit(count).order("start_time ASC")
-  end
-  
+  scope :upcoming_events, lambda { where("start_time > ?", Time.now) }
+  scope :past_events, lambda { where("start_time < ?", Time.now) }
+    
 end

@@ -1,14 +1,10 @@
-%h2= "Upcoming Events"
-%ul
-	- @upcoming_events.each do |event|
-		%li
-			%h3= event.name
-			%h5 
-				%i
-					= "X Attending - " if event.facebook_eid.nil? and false
-					= "#{event.start_time.strftime('%A, %B %-d @ %-l:%S%P')} in #{event.location}"
-			%p
-				= event.description
-	%span.see-more
-		%a{href: "#{events_url}"}
-			%i= "See More &rArr;".html_safe
+- css_for_head "events"
+
+.events
+	%h2= "Upcoming Events"
+	%ul
+		- @upcoming_events.each do |event|
+			= render partial: "events/event_li", locals: {event: event}
+		%span.see-more
+			%a{href: "#{events_url}"}
+				%i= "See More &rArr;".html_safe
