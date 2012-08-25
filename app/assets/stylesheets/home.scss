@@ -1,13 +1,16 @@
 @import "variables";
 
 .hero-pane {
-	height: 120px;
+	max-height: 120px;
+	min-height: 80px;
+	overflow: hidden;
 }
 
 .social {
 
 	p {
 		padding-top: 16px;
+		width; 600px;
 	}
 
 	.email-signup-form {
