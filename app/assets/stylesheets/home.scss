@@ -1,0 +1,31 @@
+@import "variables";
+
+.hero-pane {
+	height: 120px;
+}
+
+.social {
+
+	p {
+		padding-top: 16px;
+	}
+
+	.email-signup-form {
+		padding-top: 6px;
+		margin-top: 16px;
+		
+		border-top: 2px dashed #CCC;
+		
+		input.email-input {
+			margin-left: 0px;
+			padding: 2px;
+			width: 200px;
+			line-height: 100%;
+		}
+	
+		fieldset {
+			margin-top: 10px;
+		}
+	}
+	
+}

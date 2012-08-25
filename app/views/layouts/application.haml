@@ -2,16 +2,26 @@
 %html
 	%head
 		%title= "Michigan Hackers"
-		= stylesheet_link_tag "application", :media => "all"
-		= javascript_include_tag "application"
+		
 		= csrf_meta_tags
-		= yield :head
+
+		- js_for_head "lib/jquery-1.8.0.min.js", :layout
+		- js_for_head "lib/mhack-lib.js", :layout
+		
+		- css_for_head "reset", :layout
+		- css_for_head "global", :layout
+
+		/ Global Assets
+		= yield :layout_assets
+		/ Page Assets		
+		= yield :page_assets
+		
 	%body
-		= render partial: "layouts/header"
+		= render partial: "layouts/header" unless @no_header == true
 		.container
 			.row
 				.col1
 				#mh-content.col10-no-padding
 					= yield
 				.col1
-			= render partial: "layouts/footer"
+			= render partial: "layouts/footer" unless @no_footer == true

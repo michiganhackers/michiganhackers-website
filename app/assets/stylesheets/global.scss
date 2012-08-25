@@ -2,6 +2,7 @@
 
 /* Utility Styles */
 .clear { clear: both; }
+.hide { display: none; }
 .text-large { font-size: 32px; line-height: 40px; }
 .text-normal { font-size: 16px; line-height: 20px; }
 
@@ -148,7 +149,10 @@ a {
 	display: inline-block;
 	margin: 10px 0px;
 	font-size: 13px;
-	color: $hackers-orange;
+}
+
+.ajax-response-text.success {
+	color: $hackers-green;
 }
 
 .ajax-response-text.error {
