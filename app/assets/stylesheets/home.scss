@@ -10,7 +10,6 @@
 
 	p {
 		padding-top: 16px;
-		width; 600px;
 	}
 
 	.email-signup-form {
@@ -30,5 +29,38 @@
 			margin-top: 10px;
 		}
 	}
+}
+
+.social-media {
+	position: relative;
+	margin-top: 10px;
+	height: 22px;
+
+	.fb-like {
+		position: absolute;
+		left: 140px;
+		top: 0px;
+	}
+
+	.github-fork {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		
+		height: 16px;
+		border: 2px solid $hackers-orange;
 	
+		a {
+			vertical-align: top;
+			background: $hackers-orange;
+			line-height: 16px;
+			color: #FFF;
+			text-transform: uppercase;
+			display: inline-block;
+			font-size: 9px;
+			margin: 1px;
+			padding: 0px 2px;
+			height: 14px;
+		}
+	}
 }

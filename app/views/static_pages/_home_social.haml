@@ -8,11 +8,11 @@
 			= f.submit "Sign Up", {name: ""}
 		%fieldset
 			= radio_button :user_type, :type_name, "student", {checked: "checked", class: "radio-btn"}
-			%span.radio-text= "student"
+			= label :user_type, :type_name_student, "student", class: "radio-text"
 			= radio_button :user_type, :type_name, "educator", {class: "radio-btn"}
-			%span.radio-text= "educator"
+			= label :user_type, :type_name_educator, "educator", class: "radio-text"
 			= radio_button :user_type, :type_name, "company", {class: "radio-btn"}
-			%span.radio-text= "company"
+			= label :user_type, :type_name_company, "company", class: "radio-text"
 
 	%span#ajax-response-text.ajax-response-text.error.hide{style: "display: none;"}
 		= ""

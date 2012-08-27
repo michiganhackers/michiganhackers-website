@@ -18,6 +18,7 @@
 		
 		= render partial: "layouts/google_analytics" if Rails.env.production?
 	%body
+		= render partial: "layouts/facebook_js_api"
 		= render partial: "layouts/header" unless @no_header == true
 		.container
 			.row

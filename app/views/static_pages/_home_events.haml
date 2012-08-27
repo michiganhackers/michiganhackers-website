@@ -4,7 +4,7 @@
 	%h2= "Upcoming Events"
 	%ul
 		- @upcoming_events.each do |event|
-			= render partial: "events/event_li", locals: {event: event}
+			= render partial: "events/event_li", locals: {event: event, display: :preview}
 		%span.see-more
 			%a{href: "#{events_url}"}
 				%i= "See More &rArr;".html_safe

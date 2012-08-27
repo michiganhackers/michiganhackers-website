@@ -1,8 +1,10 @@
+- display ||= nil
 %li
 	%h3= event.name
 	%h5 
 		%i
 			= "X Attending - " if event.facebook_eid.nil? and false
 			= "#{event.start_time.strftime('%A, %B %-d @ %-l:%S%P')} - #{event.location}"
-	%p
-		= event.description.html_safe
+	%p{class: "preview"}
+		= event.description
+		
