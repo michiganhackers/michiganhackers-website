@@ -13,3 +13,6 @@ gem 'uglifier', '>= 1.0.3'
 # Application Logic Gems
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'declarative_authorization', '0.5.5'
+
+# Wiki Gems
+gem 'irwi', '0.4.2'
