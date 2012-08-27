@@ -6,5 +6,5 @@
 			= "X Attending - " if event.facebook_eid.nil? and false
 			= "#{event.start_time.strftime('%A, %B %-d @ %-l:%S%P')} - #{event.location}"
 	%p{class: "preview"}
-		= event.description
+		= event.description.html_safe
 		
