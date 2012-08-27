@@ -1,4 +1,15 @@
-$(document).ready(function(){
+// Switch placeholder text based on selected button
+$(document).ready(function() {
+	
+	$(".email-signup-form .radio-btn").on("change", function() {
+		var placeholderText = "your email here";
+		if($(this).val() === "student") { placeholderText = "your @umich email" }
+		$("#user_email").attr("placeholder", placeholderText);
+	})
+})
+
+// AJAX for sign up form submission
+$(document).ready(function() {
 	
 	var ajaxResponseText = $("#ajax-response-text");
 	
@@ -12,7 +23,7 @@ $(document).ready(function(){
 		ajaxResponseText.hide()
 		ajaxResponseText.html("")
 
-		// Perform validation
+		// Perform validation - this is good enough for now
 		if(!($("#user_email").val().match(/(\w+)@(\w+)\.(\w+)/))) {
 			ajaxResponseText.html("The email address you entered is invalid.")
 			ajaxResponseText.show();
