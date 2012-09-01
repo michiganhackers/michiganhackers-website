@@ -1,0 +1,29 @@
+= wiki_page_style
+
+%h1= wt "Editing wiki page"
+
+- if params[:preview]
+	.wiki_content
+		= wiki_content @page.content
+
+= wiki_page_form do |f|
+	= f.hidden_field :previous_version_number, :value => f.object.last_version_number
+	= hidden_field_tag :path, @page.path
+
+	%p
+		= wt "Title:<br/>".html_safe
+		= f.text_field :title
+
+	%p
+		= wt "Content:<br/>".html_safe
+		= f.text_area(:content, :value => f.object.content.gsub("\n", '&#x000A;').gsub("\r",'')).html_safe
+  
+	%p
+		= wt "Comment on this change (optional):<br/>".html_safe
+		= f.text_field :comment
+
+	%input{type: "submit", name: "save", value: "#{wt 'Save page'}", class: "submit"}
+	%input{type: "submit", name: "preview", value: "#{wt 'Preview'}", class: "submit"}
+	%input{type: "submit", name: "cancel", value: "#{wt 'Cancel'}", class: "submit"}
+
+= wiki_page_attachments(@page)

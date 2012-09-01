@@ -16,14 +16,20 @@ Website::Application.routes.draw do
   # Standard Routing #
   ####################
 
+  # Events
   resources :events, only: [:index]
+
+  # Resources
   resources :resources
 
-  # This way we can internally work with "User" objects, while the API refers to them as members
-  get "/members" => "users#index", as: :members
-  post "/members" => "users#create", as: :members
+  # Users
+  get "/members/activate/:confirmation_hash" => "users#activate_user", as: :activate_user
+  post "/members/new" => "users#create", as: :create_user
+  resources :users, path: :members, except: [:create]
 
-  resources :users, path: :members, as: :member, except: [:index, :create]
+  # User Details
+  get "/members/:user_id/details/new" => "user_details#new", as: :new_user_detail
+  post "/members/:user_id/details/new" => "user_details#create", as: :create_user_detail
 
   ################
   # Ajax Routing #
@@ -38,7 +44,11 @@ Website::Application.routes.draw do
   scope "admin", module: :admin do
     
   end
-  
+
+  ################
+  # Wiki Routing #
+  ################
+  wiki_root '/wiki'
   
   ##################
   # Error Handling #

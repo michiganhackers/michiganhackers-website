@@ -1,12 +1,19 @@
 require "bcrypt"
 
 class User < ActiveRecord::Base
-
+  
+  # Before Filters
+  before_create do
+    randomize_password if self[:password_hash].nil?
+    generate_confirmation_hash if self[:confirmation_hash].nil?
+  end
+  
   # Attribute access
-  attr_accessible :email, :user_type_id
-
+  attr_accessible :email, :user_type_id, :first_name, :last_name
+  
   # Relationships
-  has_one :user_type
+  belongs_to :user_type
+  has_one :user_detail
   
   # Validation
   validates_uniqueness_of :email
@@ -15,10 +22,7 @@ class User < ActiveRecord::Base
   
   def self.new_user_by_type type_name, user_data
     user_type = UserType.find_by_type_name type_name
-    user = User.new user_data.merge user_type_id: user_type.id
-    user.randomize_password
-    
-    return user
+    User.new user_data.merge user_type_id: user_type.id    
   end
   
   ### Instance Methods ###
@@ -37,8 +41,16 @@ class User < ActiveRecord::Base
   end
 
   def randomize_password!
-    self.password = Digest::MD5.hexdigest rand(9999999999).to_s
+    randomize_password
     save!
   end
   
+  def generate_confirmation_hash
+    self[:confirmation_hash] = Digest::MD5.hexdigest rand(9999999999).to_s
+  end
+  
+  def generate_confirmation_hash!
+    generate_confirmation_hash
+    save!
+  end
 end

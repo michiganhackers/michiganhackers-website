@@ -1,0 +1,26 @@
+= form_for @user_detail || UserDetail.new, url: create_user_detail_path do |f|
+	.row
+		.col4
+			%fieldset
+				= f.label :concentration, class: "line-break"
+				= f.select :concentration, concentration_options, prompt: "-- Please Select One --"
+			%fieldset
+				= label :grad_date, "Graduation Month & Year", class: "line-break", for: "user_detail_grad_month"
+				= select :user_detail, :grad_month, grad_month_options, prompt: ""
+				= select :user_detail, :grad_year, grad_year_options, prompt: ""
+			
+			- # TODO - Regexp validation for the url
+			%fieldset
+				= f.label :personal_url, class: "line-break"
+				= f.text_field :personal_url
+			
+			- # TODO - Validate the github handle on the client side
+			%fieldset
+				= f.label :github_handle, class: "line-break"
+				= f.text_field :github_handle
+			= f.submit "Create My Profile", name: nil
+
+		.col6
+			%h2= "Complete your Michigan Hackers Profile"
+			%p= "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+			%p= "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."

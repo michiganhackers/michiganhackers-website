@@ -20,6 +20,18 @@ label.radio-text, span.radio-text {
 	vertical-align: middle;
 }
 
+label {
+	text-transform: capitalize;
+}
+
+label.line-break {
+	display: block;
+}
+
+fieldset {
+	padding-bottom: 16px;
+}
+
 /* Grid Styles */
 .container { 
 	width: $outer-page-width; 
@@ -84,6 +96,10 @@ h1, h2, h3, h4, h5 {
 
 h2 {
 	font-size: 16px;	
+}
+
+p {
+	padding: 5px 0px;
 }
 
 p, span {
