@@ -1,8 +1,11 @@
 class UsersController < ApplicationController
 
+	# Main members action
+	def index
+	end
+
   # Serves the HTML via GET for creating a new user
   def new
-    
   end
   
   # Receives the GET request for creating a new user
