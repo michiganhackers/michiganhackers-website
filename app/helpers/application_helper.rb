@@ -30,9 +30,10 @@ module ApplicationHelper
   def js_for_body filename, type=:page
     @body_js_cache = {} if @body_js_cache.nil?
     
-    javascript_include_tag("/js/" + filename) if @body_js_cache[filename].nil?
-    
+    return unless @body_js_cache[filename].nil?
     @body_js_cache[filename] = true
+    
+    javascript_include_tag("/js/" + filename)    
   end
 
 end

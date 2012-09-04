@@ -4,7 +4,7 @@
 .row
 	.col10
 		%p
-			= "An email has been sent to "
+			= "Thanks #{@user.first_name}! An email has been sent to "
 			%i= @user.email
 			= ". It contains the details necessary to activate your new account."
 		%p

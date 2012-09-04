@@ -2,8 +2,8 @@
 $(document).ready(function() {
 	
 	$(".email-signup-form .radio-btn").on("change", function() {
-		var placeholderText = "your email here";
-		if($(this).val() === "student") { placeholderText = "your @umich email" }
+		var placeholderText = "please enter your email";
+		if($(this).val() === "student") { placeholderText = "please enter your @umich email" }
 		$("#user_email").attr("placeholder", placeholderText);
 	})
 })
@@ -39,6 +39,7 @@ $(document).ready(function() {
 			ajaxResponseText.removeClass("error").removeClass("success")
 			if(res.status == 200) {
 				ajaxResponseText.addClass("success")
+				$("#user_email").val("")				
 				setTimeout(function() { ajaxResponseText.fadeOut(200) }, 2000);
 			} else if(res.status == 400) {
 				ajaxResponseText.addClass("error")

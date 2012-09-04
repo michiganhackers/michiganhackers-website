@@ -1,10 +1,11 @@
 - display ||= nil
 %li
-	%h3= event.name
+	%h3
+		%a{href: "https://facebook.com/#{event.id}", target: :_blank}= event.name
 	%h5 
 		%i
-			= "X Attending - " if event.facebook_eid.nil? and false
 			= "#{event.start_time.strftime('%A, %B %-d @ %-l:%S%P')} - #{event.location}"
+			= # TODO - Add some caching. This is CRAZY SLOW. " - #{event.attending.length} Attending"
 	%p{class: "preview"}
-		= event.description.html_safe
+		= event.description.gsub("\n", "<br/>").html_safe
 		

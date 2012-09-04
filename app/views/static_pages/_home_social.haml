@@ -4,7 +4,7 @@
 	%p= "Simply submit your email via the form below, and we'll keep you up to date with everything Michigan Hackers."
 	= form_for(User.new, method: :post, url: ajax_sign_up_path, html: {class: "email-signup-form", id: "email-signup-form"}) do |f| 
 		%fieldset
-			= f.text_field :email, {placeholder: "your @umich email", class: "email-input"}
+			= f.text_field :email, {placeholder: "please enter your @umich email", class: "email-input"}
 			= f.submit "Sign Up", {name: ""}
 		%fieldset
 			= radio_button :user_type, :type_name, "student", {checked: "checked", class: "radio-btn"}

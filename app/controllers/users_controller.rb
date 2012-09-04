@@ -7,8 +7,10 @@ class UsersController < ApplicationController
   
   # Receives the GET request for creating a new user
   def create
-    @user = User.new params[:user]
+    @user = User.new email: "#{params[:user][:uniqname]}@umich.edu"
+    
     @user.user_type = UserType.find_by_type_name "student"
+    @user.set_fullname_from_ldap
     
     if @user.save
       render "create"
@@ -19,18 +21,18 @@ class UsersController < ApplicationController
   
   # Process a user confirmation via email
   def activate_user
-    user = User.find_by_confirmation_hash params[:confirmation_hash]
-    redirect_to root_path if user.nil?
+    @user = User.find_by_confirmation_hash params[:confirmation_hash]
+    redirect_to root_path and return if @user.nil?
     
     # Activate the user, update the hash, and save
-    user.is_active = true
-    user.generate_confirmation_hash!
+    @user.is_active = true
+    @user.generate_confirmation_hash!
     
     # Create a new user detail if the user has not does this
-    redirect_to new_user_detail_path user.id if user.user_detail.nil?
+    redirect_to new_user_detail_path(@user.confirmation_hash) and return if @user.user_detail.nil?
 
     # Return to root if we make it this far
-    redirect_to root_path    
+    redirect_to root_path
   end
   
 end

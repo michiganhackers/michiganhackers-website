@@ -1,0 +1,10 @@
+@import "variables";
+
+.message_wrap {
+	height: 28px;
+	
+	p {
+		font-size: 13px;
+		color: $hackers-orange;
+	}
+}

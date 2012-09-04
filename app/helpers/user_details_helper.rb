@@ -30,12 +30,14 @@ module UserDetailsHelper
       "January", "February", "March", "April", "May", "June",
       "July", "August", "September", "October", "November", "December",
     ]).each_index { |idx| @months[idx] = [@months[idx], idx] }
+    @months.unshift ["", nil]
   end
   
   # Dynamically generate the array, looking ahead 6 years
   def grad_year_options
     cur_year = Time.now.year
     @years ||= (@years = Array.new 7).each_index { |idx| @years[idx] = cur_year + idx }
+    @years.unshift ["", nil]
   end
   
 end

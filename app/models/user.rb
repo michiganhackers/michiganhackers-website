@@ -1,4 +1,5 @@
 require "bcrypt"
+require "umich_ldap/umich_ldap"
 
 class User < ActiveRecord::Base
   
@@ -25,7 +26,41 @@ class User < ActiveRecord::Base
     User.new user_data.merge user_type_id: user_type.id    
   end
   
+  def self.new_from_uniqname!(uniqname)
+   
+    # Raises an exception if the entry is not found
+    name_parts = UmichLDAP::get_name_parts_by_uniqname(uniqname)
+    
+    user = User.new name_parts.merge({email: "#{uniqname}@umich.edu"})
+    user.user_type = UserType.find_by_type_name "student"
+    
+    return user if user.save
+  end
+  
   ### Instance Methods ###
+  
+  def uniqname
+    return nil if email.nil?
+    (match = email.match(/(\w+)@umich\.edu/)) ? match.captures.first : nil
+  end
+  
+  def set_fullname_from_ldap
+    return if uniqname.nil?
+
+    # Raises an exception if the entry is not found
+    name_parts = UmichLDAP::get_name_parts_by_uniqname(uniqname)
+    
+    self[:first_name] = name_parts[:first_name]
+    self[:last_name] = name_parts[:last_name]
+  end
+  
+  def fullname
+    "#{first_name} #{last_name}" unless first_name.nil? or last_name.nil?
+  end
+  
+  def is_student?
+    not user_type.nil? and user_type.type_name == "student" 
+  end
   
   def password=(plain_pass)
     @password = BCrypt::Password.create plain_pass

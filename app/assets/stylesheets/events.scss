@@ -10,6 +10,14 @@
 	
 	h3 {
 		text-transform: none;
+	
+		a {
+			color: #000;
+		}
+		
+		a:hover {
+			text-decoration: underline;
+		}
 	}
 	
 	h5 {

@@ -5,8 +5,13 @@ class AddUserLoginTracking < ActiveRecord::Migration
       
       # User Log In and Activation Tracking
       t.column :last_login, "timestamp", {after: :password_hash}
+
+      # Boolean Flags
       t.column :reset_password, :boolean, {after: :password_hash, null: false, default: false}
       t.column :is_active, :boolean, {after: :password_hash, null: false, default: false}
+      t.column :reg_email_sent, :boolean, {after: :password_hash, null: false, default: false}
+
+      # Additional tracking hash
       t.column :confirmation_hash, "varchar(63)", {after: :password_hash, null: true, default: nil}
       
     end

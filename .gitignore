@@ -4,6 +4,9 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile ~/.gitignore_global
 
+# Ignore some config files
+facebook.yaml
+
 # Ignore all assets. These are compiled by the developer
 public/assets
 

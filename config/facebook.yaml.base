@@ -1,0 +1,12 @@
+development:
+  app_id: "{{FB_APP_ID}}"
+  secret_key: "{{FB_SECRET_KEY}}"
+  root_obj: michiganhackers
+test:
+  app_id: "{{FB_APP_ID}}"
+  secret_key: "{{FB_SECRET_KEY}}"
+  root_obj: michiganhackers
+production:
+  app_id: "{{FB_APP_ID}}"
+  secret_key: "{{FB_SECRET_KEY}}"
+  root_obj: michiganhackers

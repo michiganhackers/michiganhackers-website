@@ -2,16 +2,9 @@
 	.row
 		.col4
 			%fieldset
-				= f.label :first_name, class: "line-break"
-				= f.text_field :first_name
-			%fieldset
-				= f.label :last_name, class: "line-break"
-				= f.text_field :last_name
-			%fieldset
-				= f.label :email, class: "line-break"
-				= f.text_field :email, placeholder: "your @umich email"
+				= f.label :uniqname, "Your Uniquname", class: "line-break"
+				= f.text_field :uniqname
 			= f.submit "Create My Account", name: nil
-
 
 		.col6
 			%h2= "Creating A Michigan Hackers Student Account"

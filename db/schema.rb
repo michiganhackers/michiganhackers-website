@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120828175938) do
+ActiveRecord::Schema.define(:version => 20120904130826) do
+
+  create_table "event_sign_ins", :primary_key => "event_sign_in_id", :force => true do |t|
+    t.integer   "user_id",                                 :null => false
+    t.string    "eid",        :limit => 31,                :null => false
+    t.timestamp "created_at",                              :null => false
+    t.integer   "created_by",               :default => 0, :null => false
+    t.timestamp "updated_at",                              :null => false
+    t.integer   "updated_by",               :default => 0, :null => false
+  end
 
   create_table "events", :primary_key => "event_id", :force => true do |t|
     t.string    "name",         :limit => 127,                :null => false

@@ -1,13 +1,14 @@
-= form_for @user_detail || UserDetail.new, url: create_user_detail_path do |f|
+= form_for (@user_detail ||= UserDetail.new), url: create_user_detail_path do |f|
 	.row
 		.col4
+			%input{type: :hidden, value: @user.confirmation_hash, name: :"user[confirmation_hash]"}
 			%fieldset
 				= f.label :concentration, class: "line-break"
 				= f.select :concentration, concentration_options, prompt: "-- Please Select One --"
 			%fieldset
 				= label :grad_date, "Graduation Month & Year", class: "line-break", for: "user_detail_grad_month"
-				= select :user_detail, :grad_month, grad_month_options, prompt: ""
-				= select :user_detail, :grad_year, grad_year_options, prompt: ""
+				= select :user_detail, :grad_month, grad_month_options, {selected: @user_detail.grad_month}
+				= select :user_detail, :grad_year, grad_year_options, {selected: @user_detail.grad_year}
 			
 			- # TODO - Regexp validation for the url
 			%fieldset

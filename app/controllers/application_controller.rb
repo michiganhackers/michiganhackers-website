@@ -3,8 +3,8 @@ class ApplicationController < ActionController::Base
 
   around_filter :request_exception_wrapper
 
-  rescue_from ActionController::RoutingError, with: :render_404
   rescue_from AbstractController::ActionNotFound, with: :render_404
+  rescue_from ActionController::RoutingError, with: :render_404
 
   public
 
