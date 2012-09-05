@@ -10,4 +10,15 @@
 				%div{style: "width:1px;height:20px;"}
 		%tr
 			%td
-				%p= "Thank you for registering with Michigan Hackers! The rest of the copy goes here."
+				%p Thank you for registering with Michigan Hackers! We have a lot of great stuff planned for this year ranging from tech talks to hackathons. Below are the next few events happening in the coming weeks. 
+				%h3 Upcoming Events
+				- @upcoming_events.each do |event|
+					- display ||= nil
+					%p
+						%h4
+							%a{href: "https://facebook.com/#{event.id}", target: :_blank}= event.name
+						%h5 
+							%i
+								= "#{event.start_time.strftime('%A, %B %-d @ %-l:%S%P')} - #{event.location}"
+				%p Be sure to like us on facebook at <a href="http://www.facebook.com/michiganhackers">www.facebook.com/michiganhackers</a> to get all the latest infomation. And as always Happy Hacking!
+				%p --Michigan Hackers

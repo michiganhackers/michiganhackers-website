@@ -4,6 +4,7 @@ class UserMailer < ActionMailer::Base
   
   def new_user(user)
     @user = user
+    @upcoming_events = Event.upcoming_events
     mail(to: user.email, subject: "Welcome to Michigan Hackers")
   end
   
