@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
     # Handler for redirecting to the 404 page
     def render_404(error)
       @error_message = error
+      logger.error error.backtrace if Rails.env.development?
       render template: "static_pages/error", status: 404
     end
   

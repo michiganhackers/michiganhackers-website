@@ -7,7 +7,9 @@ class Ajax::UsersController < Ajax::AjaxController
     user.user_type = UserType.find_by_type_name params[:user_type][:type_name]
     user.set_fullname_from_ldap if user.is_student?
     
-    user.save!
+    #user.save!
+    
+    UserMailer.new_user(user).deliver
     
     response_text = user.first_name.empty? ? "Thank you for registering!" : "Thank you for registering, #{user.first_name}!"
     respond_with_json 200, response_text, {}

@@ -25,6 +25,7 @@ class Ajax::AjaxController < ApplicationController
     begin
       yield
     rescue Exception => e
+      e.backtrace.each { |l| logger.error l } if Rails.env.development?
       msg = Rails.env.production? ?  default_exception_message : e.message
       respond_with_json(400, msg, e)
     end
