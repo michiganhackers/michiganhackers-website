@@ -1,6 +1,6 @@
 module ActiveFacebook
   
-  CONFIG = YAML.load_file(Rails.root.join("config/facebook.yaml"))[Rails.env]
+  CONFIG = YAML.load_file(Rails.root.join("config/facebook.yml"))[Rails.env]
   APP_ID = CONFIG[:app_id.to_s]
   SECRET_KEY = CONFIG[:secret_key.to_s]
   ROOT_OBJ = CONFIG[:root_obj.to_s]
