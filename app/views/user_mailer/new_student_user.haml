@@ -28,9 +28,13 @@
 					= "We primarily use Facebook to keep you up to date, and rely on email only for matters of the utmost importance."
 				%p= "Thanks so much for connecting with us, and we hope to see you at one of our events!"
 				
-				%h4{style: "padding-bottom:20px;border-bottom: 1px solid #999;"}= "-- Michigan Hackers"
-								
-				%h3 Upcoming Events
+				%h3{style: "padding:0px;margin:0px;padding-bottom:2px;"}= "Michigan Hackers"
+				%h5{style: "border-bottom: 1px solid #999;color:#666;font-size:9px;padding:0px;margin:0px;padding-bottom:20px;"}
+					%a{href: "http://michiganhackers.org"}= "http://michiganhackers.org"
+
+				%h3{style: "padding:0px;padding-top:8px;margin:0px;"}= "Upcoming Events"
+				%h5{style: "color:#666;font-size:9px;padding:0px;margin:0px;"}
+					%i{style: "text-transform:lowercase;"}= "click an event for more details"
 				%ul
 				- @upcoming_events.slice(0,3).each do |event|
 					%li{style: "margin-left:10px;padding-bottom:14px;list-style:none;"}	
