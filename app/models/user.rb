@@ -9,6 +9,10 @@ class User < ActiveRecord::Base
     generate_confirmation_hash if self[:confirmation_hash].nil?
   end
   
+  after_create do |record|
+    UserMailer.new_student_user(record).deliver if record.is_student?
+  end
+  
   # Attribute access
   attr_accessible :email, :user_type_id, :first_name, :last_name
   

@@ -8,9 +8,7 @@ class Ajax::UsersController < Ajax::AjaxController
     user.set_fullname_from_ldap if user.is_student?
     
     user.save!
-    
-    UserMailer.new_student_user(user).deliver if user.is_student?
-    
+        
     response_text = user.first_name.empty? ? "Thank you for registering!" : "Thank you for registering, #{user.first_name}!"
     respond_with_json 200, response_text, {}
   end
