@@ -59,6 +59,8 @@ ActiveRecord::Schema.define(:version => 20120904130826) do
     t.integer   "updated_by",               :default => 0, :null => false
   end
 
+  add_index "user_types", ["type_name"], :name => "index_user_types_on_type_name", :unique => true
+
   create_table "users", :primary_key => "user_id", :force => true do |t|
     t.integer   "user_type_id",                                        :null => false
     t.string    "first_name",        :limit => 63,  :default => "",    :null => false
