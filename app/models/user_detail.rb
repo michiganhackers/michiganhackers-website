@@ -15,6 +15,10 @@ class UserDetail < ActiveRecord::Base
   SI_UG_CONCENTRATION = "ug_si"
   SI_MS_CONCENTRATION = "ms_si"
   
+  # Validations
+  validates_presence_of :concentration
+  validates_presence_of :graduation_date
+  
   # Relations
   belongs_to :user
   
@@ -52,7 +56,7 @@ class UserDetail < ActiveRecord::Base
   end
   
   def graduation_date
-    Time.new self[:graduation_date].year, self[:graduation_date].month
+    Time.new self[:graduation_date].year, self[:graduation_date].month unless self[:graduation_date].nil?
   end
   
   private

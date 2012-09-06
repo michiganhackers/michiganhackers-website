@@ -5,7 +5,8 @@
 #   git config --global core.excludesfile ~/.gitignore_global
 
 # Ignore some config files
-facebook.yaml
+facebook.yml
+smtp.yml
 
 # Ignore all assets. These are compiled by the developer
 public/assets

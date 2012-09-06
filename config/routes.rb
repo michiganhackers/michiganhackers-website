@@ -26,7 +26,7 @@ Website::Application.routes.draw do
   resources :resources
 
   # Users
-  get "/members/activate/:confirmation_hash" => "users#activate_user", as: :activate_user
+  get "/members/activate/:confirmation_hash" => "users#activate_user", :as => :activate_user
   #post "/members/new" => "users#create", as: :create_user
   resources :users, path: :members, except: [:create, :new]
 

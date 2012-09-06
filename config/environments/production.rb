@@ -37,7 +37,18 @@ Website::Application.configure do
   # config.assets.precompile += %w( home )
 
   # Disable delivery errors, bad email addresses will be ignored
-  # config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = false
+  
+  config.action_mailer.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+    address: "smtp.gmail.com",
+    port: 587,
+    user_name: "no.reply.michiganhackers@gmail.com",
+    password: YAML.load_file(Rails.root.join("config/smtp.yml"))[Rails.env]["gmail_pass"],
+    authentication: "plain",
+    enable_starttls_auto: true
+  }
+
 
   # Enable threaded mode
   # config.threadsafe!

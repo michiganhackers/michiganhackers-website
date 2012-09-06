@@ -19,9 +19,24 @@
 			%fieldset
 				= f.label :github_handle, class: "line-break"
 				= f.text_field :github_handle
+				%p{style: "padding:0px;margin:0px;margin-left:2px;"}
+					%a{target: :_blank, style: "text-transform:lowercase;font-size:11px;color:#000;", href: "https://github.com/signup/free"}= "Create a GitHub Account"
 			= f.submit "Create My Profile", name: nil
 
 		.col6
 			%h2= "Complete your Michigan Hackers Profile"
-			%p= "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-			%p= "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+			%p
+				= "Looking to build and break things? We can't wait for you to join us!"
+				= "Your account grants you access to all of the resources that Michigan Hackers has to offer."
+			%p
+				= "In addition, if you provide your GitHub account handle, you'll automatically be added to our "
+				%strong{style: "text-transform:none;"}= "Free GitHub Micro Account"
+				= " sign-up list."
+			
+			%br
+			%br
+			
+			- if @user_detail.errors.full_messages.any?
+				%h3{style: "color:RED;"}= "Errors"
+				- @user_detail.errors.full_messages.each do |e|
+					%p{style: "color:RED;"}= e

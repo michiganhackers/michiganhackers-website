@@ -1,0 +1,40 @@
+%table{style: "font-weight:lighter;line-height:18px;margin: 0px auto; font-family:sans-serif;", width: "760px", height: "100px"}
+	%trbody
+		%tr
+			%td
+				%div{style: "border-bottom: 2px solid #FF3C00;padding:20px 0px 10px 0px;"}
+					%img{style: "vertical-align:middle;height:60px;display:inline-block;", src: "http://michiganhackers.org/assets/images/logo_orange.png"}
+					%h1{style: "margin:0px;font-size:60px;padding-left:10px;vertical-align:middle;display:inline-block;color: #FF3C00"}= "Michigan Hackers"
+		%tr
+			%td
+				%div{style: "width:1px;height:20px;"}
+		%tr
+			%td
+				%p{style: "font-weight:bold;"}= "Hey #{@user.first_name}!"
+				
+				%p
+					= "Thank you for expressing an interest in Michigan Hackers!"
+					= "We have a lot of great stuff planned for this year, ranging from tech talks to hackathons and more!"
+				%p
+					= "If you'd like the full "
+					%strong{style: "font-weight:bold;"}= "Michigan Hackers"
+					= " experience, then head over to our website and "
+					%a{target: :_blank, href: "http://localhost:4200#{activate_user_path(@user.confirmation_hash)}" }="set up an account."
+					= "Doing so means you'll be included on our "
+					%strong{style: "font-weight:bold;"}= "Free GitHub Micro Account"
+					= " sign-up list, gain access to our internal resources, and other great things!"
+				%p
+					= "If you're worried spam in your inbox, don't fear!"
+					= "We primarily use Facebook to keep you up to date, and rely on email only for matters of the utmost importance."
+				%p= "Thanks so much for connecting with us, and we hope to see you at one of our events!"
+				
+				%h4{style: "padding-bottom:20px;border-bottom: 1px solid #999;"}= "-- Michigan Hackers"
+								
+				%h3 Upcoming Events
+				%ul
+				- @upcoming_events.slice(0,3).each do |event|
+					%li{style: "margin-left:10px;padding-bottom:14px;list-style:none;"}	
+						%h4{style: "font-size:14px;padding:0px;margin:0px;"}
+							%a{style: "text-decoration:none;color:#000;", href: "https://facebook.com/#{event.id}", target: :_blank}= event.name
+						%h5{style: "color:#666;font-size:10px;padding:0px;margin:0px;"} 
+							%i= "#{event.start_time.strftime('%A, %B %-d @ %-l:%S%P')} - #{event.location}"

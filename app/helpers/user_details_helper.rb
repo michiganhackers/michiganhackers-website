@@ -19,7 +19,6 @@ module UserDetailsHelper
           ["LSA Computer Science", UserDetail::LSA_CS_CONCENTRATION], 
           ["School of Information | Undergrad", UserDetail::SI_UG_CONCENTRATION],
           ["School of Information | Graduate", UserDetail::SI_MS_CONCENTRATION],
-          ["Other (Manual Entry)", "other"],
         ]
     }
   end
