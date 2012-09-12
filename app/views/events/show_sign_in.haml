@@ -1,14 +1,12 @@
 - css_for_head "sign_in"
+- js_for_head "sign_in"
 
 %h2.text-large= @event.name
 
-%div.message_wrap
-	%p#notice_msg.notice_msg= flash[:notice]
-	- unless flash[:notice].nil?
-		:javascript
-			$("#notice_msg").delay(2000).fadeOut();
-
+.message_wrap
+	%p#notice_msg.notice_msg= "Thank you for signing in. We hope that you enjoy the event!"
+	
 %p= "Please enter your uniqname to sign in for this event."
-= form_for "user", url: record_event_sign_in_path(params[:eid]) do |f|
+= form_for "user", url: ajax_event_sign_in_path(params[:eid]), html: {id: "sign-in-form"} do |f|
 	= f.text_field :uniqname, {placeholder: "please enter your uniqname"}
 	= f.submit "Sign In"

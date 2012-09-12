@@ -39,6 +39,7 @@ Website::Application.routes.draw do
   ################
   scope "ajax", module: :ajax do
     post "/sign-up" => "users#sign_up_by_email_and_type", as: :ajax_sign_up
+    post "/events/:eid/signin" => "events#sign_in", as: :ajax_event_sign_in
   end
   
   #################
