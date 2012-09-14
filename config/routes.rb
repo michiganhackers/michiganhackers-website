@@ -6,7 +6,7 @@ Website::Application.routes.draw do
 
   root to: "static_pages#home"
   get "/sponsors" => "static_pages#sponsors", as: :sponsors
-  
+  get "/about" => "static_pages#about", as: :about 
   # For testing the 404 page
   if Rails.env.development?
     get "/404" => "static_pages#error", as: :error
