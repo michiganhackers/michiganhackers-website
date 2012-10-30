@@ -23,3 +23,6 @@ public/assets
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Google ID file
+public/googled47a0446b611a792.html
