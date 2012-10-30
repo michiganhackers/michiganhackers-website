@@ -1,13 +1,13 @@
+require "pp"
 class ApplicationController < ActionController::Base
+  include SessionHelper
+  
   protect_from_forgery
 
   around_filter :request_exception_wrapper
-
   rescue_from AbstractController::ActionNotFound, with: :render_404
   rescue_from ActionController::RoutingError, with: :render_404
-
-  public
-
+  
   protected
   
     # Handler for redirecting to the 404 page
@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
       logger.error error.backtrace if Rails.env.development?
       render template: "static_pages/error", status: 404
     end
-  
+
   private
   
     def request_exception_wrapper

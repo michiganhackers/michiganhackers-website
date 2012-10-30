@@ -42,7 +42,6 @@ class User < ActiveRecord::Base
   end
   
   ### Instance Methods ###
-  
   def uniqname
     return nil if email.nil?
     (match = email.match(/(\w+)@umich\.edu/)) ? match.captures.first : nil
@@ -51,7 +50,7 @@ class User < ActiveRecord::Base
   def set_fullname_from_ldap
     return if uniqname.nil?
 
-    # Raises an exception if the entry is not found
+    # This will always succeed
     name_parts = UmichLDAP::get_name_parts_by_uniqname(uniqname)
     
     self[:first_name] = name_parts[:first_name]
@@ -64,6 +63,10 @@ class User < ActiveRecord::Base
   
   def is_student?
     not user_type.nil? and user_type.type_name == "student" 
+  end
+  
+  def role_symbols
+    [user_type.type_name.to_sym]
   end
   
   def password=(plain_pass)

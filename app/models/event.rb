@@ -46,17 +46,33 @@ class Event < ActiveFacebook::Base
 
   private
 
+  # TODO - Move error handling into ActiveFacebook module for transparent connection-error handling
+
   def self.get_event(eid, params={})
-    Event.new graph_instance.get_object(eid, DEFAULT_PARAMS.merge(params||{}))
+    begin
+      Event.new graph_instance.get_object(eid, DEFAULT_PARAMS.merge(params||{}))
+    rescue Exception => e
+      puts e
+      return []
+    end
   end
 
   def self.get_events(params={})
-    events = graph_instance.get_connections("michiganhackers", "events", DEFAULT_PARAMS.merge(params||{})).map { |e| Event.new e }
-    events.sort
+    (begin
+      graph_instance.get_connections("michiganhackers", "events", DEFAULT_PARAMS.merge(params||{})).map { |e| Event.new e }
+    rescue Exception => e
+      puts e
+      return []
+    end).sort    
   end
 
   def get_attending
-    (self.class.send :graph_instance).get_connection(@raw_hash["id"], "attending")
+    begin
+      (self.class.send :graph_instance).get_connection(@raw_hash["id"], "attending")
+    rescue Exception => e
+      puts e
+      return []
+    end
   end
 
 end
