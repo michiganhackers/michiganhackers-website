@@ -3,7 +3,7 @@ class Ajax::UsersController < Ajax::AjaxController
   ###########################################
   # Methods for all user account management #
   ###########################################
-  filter_access_to [:sign_up_by_email_and_type], require: :authorize  
+  # filter_access_to [:sign_up_by_email_and_type], require: :authorize  
   
   def sign_up_by_email_and_type
         
