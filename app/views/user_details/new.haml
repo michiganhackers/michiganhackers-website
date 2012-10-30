@@ -1,4 +1,4 @@
-= form_for (@user_detail ||= UserDetail.new), url: create_user_detail_path do |f|
+= form_for (@user_detail ||= UserDetail.new), url: create_user_detail_path, do |f|
 	.row
 		.col4
 			%input{type: :hidden, value: @user.confirmation_hash, name: :"user[confirmation_hash]"}
@@ -20,18 +20,21 @@
 				= f.label :github_handle, class: "line-break"
 				= f.text_field :github_handle
 				%p{style: "padding:0px;margin:0px;margin-left:2px;"}
-					%a{target: :_blank, style: "text-transform:lowercase;font-size:11px;color:#000;", href: "https://github.com/signup/free"}= "Create a GitHub Account"
+					%a{target: :_blank, style: "text-transform:lowercase;font-size:11px;color:#000;", href: "https://github.com/signup/free"}
+						= "click here to create an account"
 			= f.submit "Create My Profile", name: nil
 
 		.col6
 			%h2= "Complete your Michigan Hackers Profile"
 			%p
-				= "Looking to build and break things? We can't wait for you to join us!"
+				= "Looking to build and break all the things? We can't wait for you to join us!"
 				= "Your account grants you access to all of the resources that Michigan Hackers has to offer."
-			%p
+			
+			%p.hide
 				= "In addition, if you provide your GitHub account handle, you'll automatically be added to our "
 				%strong{style: "text-transform:none;"}= "Free GitHub Micro Account"
 				= " sign-up list."
+			
 			
 			%br
 			%br

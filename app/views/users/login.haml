@@ -1,0 +1,15 @@
+= form_for (@user || User.new), url: authenticate_user_path, method: :post do |f|
+	.row
+		.col4
+			- unless @error_notice.nil?
+				%span#ajax-response-text.ajax-response-text.error.hide{style: "display: block;"}
+					= @error_notice
+			%fieldset
+				= f.label :email, class: "line-break"
+				= f.text_field :email
+			%fieldset
+				= f.label :password, class: "line-break"
+				%input{type: :password, name: :"user[password]", id: :user_password, size: "30"}
+			%fieldset
+				= f.submit "Log In"
+		.col6

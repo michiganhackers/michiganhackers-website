@@ -23,16 +23,22 @@ Website::Application.routes.draw do
   
 
   # Resources
+  # TODO - Rename or repurpose this
   resources :resources
 
   # Users
   get "/members/activate/:confirmation_hash" => "users#activate_user", :as => :activate_user
-  #post "/members/new" => "users#create", as: :create_user
   resources :users, path: :members, except: [:create, :new]
 
-  # User Details
+  # No-Auth User Details
   get "/members/:confirmation_hash/details/new" => "user_details#new", as: :new_user_detail
   post "/members/:confirmation_hash/details/new" => "user_details#create", as: :create_user_detail
+
+  # Authentication
+  # Login and Logout
+  get "/login" => "users#login", as: :login
+  post "/login" => "users#authenticate", as: :authenticate_user
+  get "/logout" => "users#deauthenticate", as: :logout
 
   ################
   # Ajax Routing #

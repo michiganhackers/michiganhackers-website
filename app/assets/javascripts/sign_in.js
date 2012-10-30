@@ -16,7 +16,6 @@ $(document).ready(function() {
 			$("#notice_msg").fadeIn().delay(1500).fadeOut();
 		}, 1500)
 		
-		
 		// Send it away!
 		MHACK.ajaxPOST($(this).attr("action"), $(this).serializeArray(), function(r) { 
 			clearTimeout(timeoutId);
