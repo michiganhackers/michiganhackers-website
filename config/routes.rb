@@ -23,11 +23,13 @@ Website::Application.routes.draw do
   
   # CSEducation Week Routing
   get "/cseducation/submit" => "static_pages#cseducation_submit", as: :cs_edu_submit
-  post "/cseducation/submit" => "static_pages#cseducation_process", as: :cs_edu_process
   get "/cseducation/leaderboard" => "static_pages#cseducation_leaderboard", as: :cs_edu_leaderboard
+  get "/cseducation/countdown" => "static_pages#cseducation_countdown", as: :cs_edu_countdown
+  post "/cseducation/submit" => "static_pages#cseducation_process", as: :cs_edu_process
 
   # Needs to go after the static routing
   get "/cseducation/(:qid)" => "static_pages#cseducation", as: :cs_edu
+  
 
 
 
