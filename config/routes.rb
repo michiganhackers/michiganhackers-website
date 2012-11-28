@@ -21,13 +21,22 @@ Website::Application.routes.draw do
   post "/events/signin/:eid" => "events#record_sign_in", as: :record_event_sign_in
   resources :events, only: [:index]
   
+  # CSEducation Week Routing
+  get "/cseducation/submit" => "static_pages#cseducation_submit", as: :cs_edu_submit
+  post "/cseducation/submit" => "static_pages#cseducation_process", as: :cs_edu_process
+  get "/cseducation/leaderboard" => "static_pages#cseducation_leaderboard", as: :cs_edu_leaderboard
+
+  # Needs to go after the static routing
+  get "/cseducation/(:qid)" => "static_pages#cseducation", as: :cs_edu
+
+
 
   # Resources
   # TODO - Rename or repurpose this
   resources :resources
 
   # Users
-  get "/members/activate/:confirmation_hash" => "users#activate_user", :as => :activate_user
+  get "/members/activate/:confirmation_hash" => "users#activate_user", as: :activate_user
   resources :users, path: :members, except: [:create, :new]
 
   # No-Auth User Details

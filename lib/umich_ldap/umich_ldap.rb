@@ -16,6 +16,7 @@ module UmichLDAP
         first_name: entry.givenName.any? ? entry.givenName.first : "", 
         last_name: entry.sn.any? ? entry.sn.first : ""
       }
+      
     rescue Exception => e
       puts e
       {first_name: "", last_name: ""}

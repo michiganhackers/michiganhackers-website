@@ -3,6 +3,7 @@ class EventsController < ApplicationController
   def index
     @upcoming_events = Event.upcoming_events
     @past_events = Event.past_events
+    pp @past_events
   end
 
   def show_sign_in

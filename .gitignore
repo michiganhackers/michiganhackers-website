@@ -7,6 +7,7 @@
 # Ignore some config files
 facebook.yml
 smtp.yml
+cseducation_questions.yml
 
 # Ignore all assets. These are compiled by the developer
 public/assets
@@ -23,3 +24,4 @@ public/assets
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+

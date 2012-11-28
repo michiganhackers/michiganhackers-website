@@ -12,5 +12,5 @@
 		.event-block
 			%h2.text-large= "Past Events"
 			%ul
-				- @past_events.each do |event|
+				- @past_events.reverse.each do |event|
 					= render partial: "events/event_li", locals: {event: event}

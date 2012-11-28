@@ -7,4 +7,7 @@
 			= render partial: "events/event_li", locals: {event: event, display: :preview}
 		%span.see-more
 			%a{href: "#{events_url}"}
-				%i= "See More &rArr;".html_safe
+				- if @upcoming_events.any?
+					%i= "See More &rArr;".html_safe
+				- else 
+					%i= "Check Out Past Events &rArr;".html_safe
