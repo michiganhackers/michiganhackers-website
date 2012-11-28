@@ -25,3 +25,5 @@ public/assets
 /log/*.log
 /tmp
 
+# Google ID file
+public/googled47a0446b611a792.html
