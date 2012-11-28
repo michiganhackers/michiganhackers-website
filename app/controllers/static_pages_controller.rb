@@ -6,7 +6,7 @@ class StaticPagesController < ApplicationController
   CS_EDU_START = Time.new 2012, 12, 03, 8
 
   # Before filter to trigger the countdown if the date is not upon us!
-  before_filter :cseducation_date_check, only: [:cseducation, :cseducation_submit, :cseducation_process, :cseducation_leaderboard]
+  before_filter :cseducation_filter, only: [:cseducation, :cseducation_submit, :cseducation_process, :cseducation_leaderboard]
 
   def home
     @upcoming_events = Event.upcoming_events.slice(0,2)
@@ -53,8 +53,8 @@ class StaticPagesController < ApplicationController
   
   private
   
-  def cseducation_date_check
-    redirect_to cs_edu_countdown_path if Time.now < CS_EDU_START
+  def cseducation_filter
+    # redirect_to cs_edu_countdown_path if Time.now < CS_EDU_START
   end
   
 end
