@@ -4,4 +4,4 @@
 	%strong= "Question ID"
 	= "#{@question["qid"]}"
 .col10.question-text
-	%p= @question["txt"]
+	%p= @question["txt"].html_safe

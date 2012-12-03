@@ -6,8 +6,10 @@ $(document).ready(function() {
 		, hour_div = mins_div*60
 	;
 	
-	updateClock();
-	setInterval(updateClock, 1000);
+	/**
+   * CS Education week is upon us! Why not try a question instead?
+	 * 8e9c7a86c8295244c2f50e1049023b1b
+	 */
 
 	function updateClock() {
 		var time_diff = end_time - (new(Date)());
