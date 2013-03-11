@@ -12,9 +12,9 @@ module Rails
     def set_environment
       ENV["RAILS_ENV"] ||= options[:environment]
       if ENV["RAILS_ENV"] == "production"
-        options[:Port] = 20000
+        options[:Port] = 10000
       else 
-        options[:Port] = 4200
+        options[:Port] = 10001
       end
     end
   end
