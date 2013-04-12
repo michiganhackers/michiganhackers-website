@@ -19,5 +19,5 @@ gem 'declarative_authorization', '0.5.5'
 
 # Transport, HTTP, and API Gems
 gem "koala"
-gem "httparty"
 gem "net-ldap"
+gem "httparty"

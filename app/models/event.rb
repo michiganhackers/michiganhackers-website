@@ -1,7 +1,6 @@
 require "active_facebook/active_facebook"
 
 class Event < ActiveFacebook::Base
-
   FIELDS = [:id, :start_time, :end_time, :description, :location, :name].join(",")
   DEFAULT_PARAMS = {fields: FIELDS}
 
@@ -74,5 +73,4 @@ class Event < ActiveFacebook::Base
       return []
     end
   end
-
 end

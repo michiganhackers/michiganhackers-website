@@ -78,8 +78,8 @@ ActiveRecord::Schema.define(:version => 20121128043010) do
     t.string    "email",             :limit => 127,                    :null => false
     t.string    "password_hash",     :limit => 63,                     :null => false
     t.string    "confirmation_hash", :limit => 63
-    t.boolean   "reg_email_sent",                   :default => false, :null => false
     t.boolean   "is_active",                        :default => false, :null => false
+    t.boolean   "reg_email_sent",                   :default => false, :null => false
     t.boolean   "reset_password",                   :default => false, :null => false
     t.datetime  "last_login"
     t.timestamp "created_at",                                          :null => false
@@ -88,7 +88,6 @@ ActiveRecord::Schema.define(:version => 20121128043010) do
     t.integer   "updated_by",                       :default => 0,     :null => false
   end
 
-  add_index "users", ["confirmation_hash"], :name => "index_users_on_confirmation_hash", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
 
   create_table "wiki_page_versions", :force => true do |t|

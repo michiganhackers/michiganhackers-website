@@ -2,7 +2,6 @@ require "bcrypt"
 require "umich_ldap/umich_ldap"
 
 class User < ActiveRecord::Base
-  
   # Before Filters
   before_create do
     randomize_password if self[:password_hash].nil?

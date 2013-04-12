@@ -1,5 +1,4 @@
 class Ajax::AjaxController < ApplicationController
-  
   # Do not render by default
   layout false
   
@@ -35,5 +34,4 @@ class Ajax::AjaxController < ApplicationController
     # Sub-application wide exclusion for non-ajax requests
     redirect_to root_url unless request.xhr?
   end
-  
 end

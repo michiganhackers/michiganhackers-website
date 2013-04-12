@@ -1,12 +1,12 @@
 development:
-  app_id: "{{FB_APP_ID}}"
-  secret_key: "{{FB_SECRET_KEY}}"
+  app_id: "435736059811472"
+  secret_key: "62c0ec34fd6a5f6cc6c85cdcf004e25e"
   root_obj: michiganhackers
 test:
-  app_id: "{{FB_APP_ID}}"
-  secret_key: "{{FB_SECRET_KEY}}"
+  app_id: "435736059811472"
+  secret_key: "62c0ec34fd6a5f6cc6c85cdcf004e25e"
   root_obj: michiganhackers
 production:
-  app_id: "{{FB_APP_ID}}"
-  secret_key: "{{FB_SECRET_KEY}}"
+  app_id: "435736059811472"
+  secret_key: "62c0ec34fd6a5f6cc6c85cdcf004e25e"
   root_obj: michiganhackers

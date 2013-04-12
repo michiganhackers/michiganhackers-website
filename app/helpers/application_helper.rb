@@ -1,5 +1,4 @@
 module ApplicationHelper
-
   # Helper function for including CSS in the head
   def css_for_head filename, type=:page
     @head_css_cache = {} if @head_css_cache.nil?
@@ -35,5 +34,4 @@ module ApplicationHelper
     
     javascript_include_tag("/js/" + filename)    
   end
-
 end

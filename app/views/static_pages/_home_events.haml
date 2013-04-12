@@ -1,13 +1,10 @@
 - css_for_head "events"
 
 .events
-	%h2= "Upcoming Events"
+	%h2= "Upcoming Facebook Events"
 	%ul
 		- @upcoming_events.each do |event|
 			= render partial: "events/event_li", locals: {event: event, display: :preview}
 		%span.see-more
-			%a{href: "#{events_url}"}
-				- if @upcoming_events.any?
-					%i= "See More &rArr;".html_safe
-				- else 
-					%i= "Check Out Past Events &rArr;".html_safe
+			%a{href: "#{calendar_path}"}
+				%i= "Check the Calendar for General Events &rArr;".html_safe

@@ -1,2 +1,5 @@
 #footer.footer
-	%p= "&#169; 2012 - Michigan Hackers".html_safe
+  %p
+    = "&#169; Michigan Hackers ".html_safe
+    %strong= "&middot;".html_safe
+    = "2012 - #{Time.now.year}".html_safe
