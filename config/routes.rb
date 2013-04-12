@@ -16,23 +16,14 @@ Website::Application.routes.draw do
   # Standard Routing #
   ####################
 
+	get "/about" => "static_pages#about", as: :about
+	get "/calendar" => "static_pages#calendar", as: :calendar
+
   # Events
   get "/events/signin/:eid" => "events#show_sign_in", as: :show_event_sign_in
   post "/events/signin/:eid" => "events#record_sign_in", as: :record_event_sign_in
   resources :events, only: [:index]
   
-  # CSEducation Week Routing
-  get "/cseducation/submit" => "static_pages#cseducation_submit", as: :cs_edu_submit
-  get "/cseducation/leaderboard" => "static_pages#cseducation_leaderboard", as: :cs_edu_leaderboard
-  get "/cseducation/countdown" => "static_pages#cseducation_countdown", as: :cs_edu_countdown
-  post "/cseducation/submit" => "static_pages#cseducation_process", as: :cs_edu_process
-
-  # Needs to go after the static routing
-  get "/cseducation/(:qid)" => "static_pages#cseducation", as: :cs_edu
-  
-
-
-
   # Resources
   # TODO - Rename or repurpose this
   resources :resources
